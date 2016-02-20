@@ -73,6 +73,10 @@
 		<h1> Video formatting template </h1>
 		<br>
 
+
+
+		<!-- side box one: reminders while script writing -->
+
 		<div id="side-tips">
 			<p> <span class="trees-greeting">Hey, TREESies!</span> As you use this template to organize your script, please remember:</p>
 
@@ -92,6 +96,10 @@
 			</ul>
 		</div>
 
+
+
+		<!-- side box two: reaching out to Jen, Judy, jRuby -->
+
 		<div id="friend-infoz">
 			<p> <span class="trees-greeting">Questions?</span> Some friends who would LOVE to brainstorm scripts with you:</p>
 
@@ -109,10 +117,16 @@
 
 		</div>
 
+
+
+		<!-- main text: template content -->
+
 		<div id="template">
+
+			<!-- step one: the question -->
 			<h3> 1. <span class="header"> Present a motivating question </span> </h3>
 			<ul>
-				<li> Introduce the misconception / motivating statement </li>
+				<li id="first-point"> Introduce the misconception / motivating statement </li>
 				<li> Challenge it: is this statement true? </li>
 			</ul>
 
@@ -124,6 +138,8 @@
 			</ul>
 			<br>
 
+
+			<!-- step two: the science -->
 			<h3> 2. <span class="header"> Explain the fundamental science </span> </h3>
 			<ul>
 				<li> Describe the scientific concepts</li>
@@ -139,6 +155,8 @@
 			</ul>
 			<br>
 
+
+			<!-- step three: tying back -->
 			<h3> 3. <span class="header"> Reconnect fundamentals with motivation </span> </h3>
 			<ul>
 				<li> Return to the motivating question</li>
@@ -157,3 +175,17 @@
 
 	</body>
 
+	<script>
+
+		// exercise: using jQuery to modify existing (pre-Jared) DOM, as written in HTML
+
+		// creating a new bullet element to append to Step One
+		var $li = $("<li>");
+		$li.text("TEST");
+		$li.appendTo("#first-point");
+		/* $li.addClass();     */
+
+
+	</script>
+
+</html>
