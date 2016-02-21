@@ -123,12 +123,13 @@
 
 		<div id="template">
 
+			
 			<!-- step one: the question -->
 			<div id="the-question">
 				<h3> 1. <span class="header"> Present a motivating question </span> </h3>
 				<ul>
-					<li id="first-point"> Introduce the misconception / motivating statement </li>
-					<li> Challenge it: is this statement true? </li>
+					<li id="step-one-context"> Introduce the misconception / motivating statement </li>
+					<li id="step-one-challenge"> Challenge it: is this statement true? </li>
 				</ul>
 
 				<ul class="examples"> Ex.
@@ -177,9 +178,10 @@
 				</ul>
 			</div>
 			<br>
-		</div>
-
+		
+		</div> <!-- end #template (main text) -->
 	</body>
+
 
 	<script>
 
@@ -199,16 +201,38 @@
 
 		//       STEP ONE MODIFICATIONS      //
 
-		// 1. altering bullet one text to isolate question and motivation
-		var $question = $("#first-point");
-		$question.text("Introduce the misconception")
+		// 1. altering bullet one text to isolate contextual motivation from scientific question
+		var $explainMotive = $("#step-one-context");
+		$explainMotive
+			.text("What contextual background should your audience know in order to connect the question and science with their own lives?")
+			.after("<br>");
 
-		// 2. creating a new bullet element for motivation
 		var $motivation = $("<li>");
 		$motivation
-			.text("Motivate your audience")
-			.appendTo("#first-point");
+			.text("Introduce the context")
+			.prependTo("#step-one-context");
+
+		// 2. creating a new bullet element for the misconception
+		var $explainQuestion = $("#step-one-challenge");
+		$explainQuestion
+			.text("Explicitly state the question (that we will answer with science!)")
+			.after("<br>");
+
+		var $question = $("<li>");
+		$question
+			.text("Introduce the misconception")
+			.prependTo("#step-one-challenge");
 		
+		// 3. creating a new bullet to challenge the misconception
+		var challenge = $("<li>");
+		$challenge
+			.text("Challenge it: is it true?")
+			.append("#the-question");
+
+		var explainChallenge = $("<li>");
+		$explainChallenge
+			.text("Lead up to the science that will blow us awayyyyy!")
+			.appendTo("$challenge");
 
 
 	</script>
