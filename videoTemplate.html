@@ -21,7 +21,9 @@
 		}
 
 		h3 {
+			font-size: 20px;
 			font-weight: 200;
+			letter-spacing: 2px;
 		}
 
 		.header {
@@ -55,6 +57,12 @@
 			width: 38%;
 			overflow: auto;
 			padding: 20px;
+		}
+
+		.bold-bullet {
+			letter-spacing: 2.2px;
+			line-height: 30px;
+			color: #004d1b;
 		}
 
 		.examples {
@@ -127,15 +135,15 @@
 			<!-- step one: the question -->
 			<div id="the-question">
 				<h3> 1. <span class="header"> Present a motivating question </span> </h3>
-				<ul>
+				<ul id ="step-one-points">
 					<li id="step-one-context"> Introduce the misconception / motivating statement </li>
-					<li id="step-one-challenge"> Challenge it: is this statement true? </li>
+					<li id="step-one-misconcept"> Challenge it: is this statement true? </li>
 				</ul>
 
 				<ul class="examples"> Ex.
 					<div class="ex-bullets">
-						<li> A smoggier sky is more polluted than a clearer one. </li>
-						<li> It this 100% true? </li>
+						<li id="ex-context"> A smoggier sky is more polluted than a clearer one. </li>
+						<li id="ex-challenge"> It this 100% true? </li>
 					</div>
 				</ul>
 			</div>
@@ -145,9 +153,9 @@
 			<!-- step two: the science -->
 			<div id="the-science">
 				<h3> 2. <span class="header"> Explain the fundamental science </span> </h3>
-				<ul>
-					<li> Describe the scientific concepts</li>
-					<li> Limit this description to what is necessary to understand #3  </li>
+				<ul class="step-two-points">
+					<li id="step-two-science"> Describe the scientific concepts</li>
+					<li id="step-two-tip"> Limit this description to what is necessary to understand #3  </li>
 				</ul>
 
 				<ul class="examples"> Ex.
@@ -165,8 +173,8 @@
 			<div id="the-merging">
 				<h3> 3. <span class="header"> Reconnect fundamentals with motivation </span> </h3>
 				<ul>
-					<li> Return to the motivating question</li>
-					<li> Directly apply fundamentals to tie it all together! </li>
+					<li id="step-three-reconnect"> Return to the motivating question</li>
+					<li id="step-three-apply"> Directly apply fundamentals to tie it all together! </li>
 				</ul>
 
 				<ul class="examples"> Ex.
@@ -210,31 +218,100 @@
 		var $motivation = $("<li>");
 		$motivation
 			.text("Introduce the context")
+			.addClass("bold-bullet")
 			.prependTo("#step-one-context");
 
 		// 2. creating a new bullet element for the misconception
-		var $explainQuestion = $("#step-one-challenge");
+		var $explainQuestion = $("#step-one-misconcept");
 		$explainQuestion
-			.text("Explicitly state the question (that we will answer with science!)")
+			.text("Explicitly state it.")
 			.after("<br>");
 
 		var $question = $("<li>");
 		$question
 			.text("Introduce the misconception")
-			.prependTo("#step-one-challenge");
+			.addClass("bold-bullet")
+			.prependTo("#step-one-misconcept");
 		
 		// 3. creating a new bullet to challenge the misconception
-		var challenge = $("<li>");
-		$challenge
-			.text("Challenge it: is it true?")
-			.append("#the-question");
-
-		var explainChallenge = $("<li>");
+		var $explainChallenge = $("<li>");
 		$explainChallenge
-			.text("Lead up to the science that will blow us awayyyyy!")
-			.appendTo("$challenge");
+			.text("Question the misconception. Can we explain its basis with fundamentals? This is our transition into the bam-woah-awesome science!")
+			.appendTo("#step-one-points")
+			.attr("id","step-one-challenge")
+			.after("<br>");
 
-		// 4. DEMO FOR CHERRY!
+		var $challenge = $("<li>");
+		$challenge
+			.text("Challenge: is this statement true?")
+			.addClass("bold-bullet")
+			.prependTo("#step-one-challenge");
+
+		// 4. step one example
+		var $exContext = $("#ex-context");
+		$exContext
+			.text("Poor air quality has negative health implications");
+
+		var $exChallenge = $("#ex-challenge");
+		$exChallenge
+			.text("Is a smoggier sky more polluted than a clear one?");
+
+
+
+		//       STEP TWO MODIFICATIONS       //
+
+		// 1. Add descriptions to each bullet tagline
+		
+		/*$( "ul.step-two-points" ).children()
+			.addClass("bold-bullet");*/
+
+		var $explainScience = $("#step-two-science");
+		$explainScience
+			.text("Describe the fundamentals, using terms that directly reference the question posed by the misconception/assumption.")
+			.after("<br>");
+
+		var $science = $("<li>");
+		$science
+			.text("Introduce the science")
+			.addClass("bold-bullet")
+			.prependTo("#step-two-science");
+
+		// step two, bullet two
+		var $explainTip = $("#step-two-tip");
+		$explainTip
+			.text("Limit your description to what is minimally necessary to understand #3. In fact, each piece of information should focus directly on answering the exact question. Additional or undirected frillies distract from the main purpose!")
+			.after("<br>");
+
+		var $tip = $("<li>");
+		$tip
+			.text("Streamline your explanation")
+			.addClass("bold-bullet")
+			.prependTo("#step-two-tip");
+
+
+		// step three, bullet one
+		var $explainReconnect = $("#step-three-reconnect");
+		$explainReconnect
+			.text("Transition back to our initial context and example -- the misconception.")
+			.after("<br>");
+
+		var $tieBack = $("<li>");
+		$tieBack
+			.text("Reconnect with the motivating question")
+			.addClass("bold-bullet")
+			.prependTo("#step-three-reconnect");
+
+		// step three, bullet two
+		var $explainApplication = $("#step-three-apply");
+		$explainApplication
+			.text("Synthesize the freshly discussed fundamentals to tie it all together. There should be a clear sentence that directly answers the question we had set-out to investigate!")
+			.after("<br>");
+
+		var $tieBack = $("<li>");
+		$tieBack
+			.text("Apply new knowledge to pre-existing question")
+			.addClass("bold-bullet")
+			.prependTo("#step-three-apply");
 
 	</script>
 
