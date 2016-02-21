@@ -124,52 +124,58 @@
 		<div id="template">
 
 			<!-- step one: the question -->
-			<h3> 1. <span class="header"> Present a motivating question </span> </h3>
-			<ul>
-				<li id="first-point"> Introduce the misconception / motivating statement </li>
-				<li> Challenge it: is this statement true? </li>
-			</ul>
+			<div id="the-question">
+				<h3> 1. <span class="header"> Present a motivating question </span> </h3>
+				<ul>
+					<li id="first-point"> Introduce the misconception / motivating statement </li>
+					<li> Challenge it: is this statement true? </li>
+				</ul>
 
-			<ul class="examples"> Ex.
-				<div class="ex-bullets">
-					<li> A smoggier sky is more polluted than a clearer one. </li>
-					<li> It this 100% true? </li>
-				</div>
-			</ul>
+				<ul class="examples"> Ex.
+					<div class="ex-bullets">
+						<li> A smoggier sky is more polluted than a clearer one. </li>
+						<li> It this 100% true? </li>
+					</div>
+				</ul>
+			</div>
 			<br>
 
 
 			<!-- step two: the science -->
-			<h3> 2. <span class="header"> Explain the fundamental science </span> </h3>
-			<ul>
-				<li> Describe the scientific concepts</li>
-				<li> Limit this description to what is necessary to understand #3  </li>
-			</ul>
+			<div id="the-science">
+				<h3> 2. <span class="header"> Explain the fundamental science </span> </h3>
+				<ul>
+					<li> Describe the scientific concepts</li>
+					<li> Limit this description to what is necessary to understand #3  </li>
+				</ul>
 
-			<ul class="examples"> Ex.
-				<div class="ex-bullets">
-					<li> Visual clarity depends on the light path between the object and your eye </li> 
-					<li> Particles scatter light, obscuring clarity </li>
-					<li> Light scatter is not just dependent on particle count, but other entities like composition and size </li>
-				</div>
-			</ul>
+				<ul class="examples"> Ex.
+					<div class="ex-bullets">
+						<li> Visual clarity depends on the light path between the object and your eye </li> 
+						<li> Particles scatter light, obscuring clarity </li>
+						<li> Light scatter is not just dependent on particle count, but other entities like composition and size </li>
+					</div>
+				</ul>
+			</div>
 			<br>
 
 
 			<!-- step three: tying back -->
-			<h3> 3. <span class="header"> Reconnect fundamentals with motivation </span> </h3>
-			<ul>
-				<li> Return to the motivating question</li>
-				<li> Directly apply fundamentals to tie it all together! </li>
-			</ul>
+			<div id="the-merging">
+				<h3> 3. <span class="header"> Reconnect fundamentals with motivation </span> </h3>
+				<ul>
+					<li> Return to the motivating question</li>
+					<li> Directly apply fundamentals to tie it all together! </li>
+				</ul>
 
-			<ul class="examples"> Ex.
-				<div class="ex-bullets">
-					<li> The sky appears smoggier when there is more light scatter </li>
-					<li> Humidity can change particle composition and/or size, potentially changing how particles scatter light</li>
-					<li> Therefore, the same number of particles can produce different visibilities -- a smoggier sky doesn't necessary mean more pollutants! </li>
-				</div>
-			</ul>
+				<ul class="examples"> Ex.
+					<div class="ex-bullets">
+						<li> The sky appears smoggier when there is more light scatter </li>
+						<li> Humidity can change particle composition and/or size, potentially changing how particles scatter light</li>
+						<li> Therefore, the same number of particles can produce different visibilities -- a smoggier sky doesn't necessary mean more pollutants! </li>
+					</div>
+				</ul>
+			</div>
 			<br>
 		</div>
 
@@ -177,13 +183,32 @@
 
 	<script>
 
-		// exercise: using jQuery to modify existing (pre-Jared) DOM, as written in HTML
+		/* exercise: using jQuery to modify existing (pre-Jared) DOM, as written in HTML
+		   
+		   Jared-inspired modifications: 
+		   		
+		   		GOAL: to clarify "motivations" for why the audience should be interested in video content
 
-		// creating a new bullet element to append to Step One
-		var $li = $("<li>");
-		$li.text("TEST");
-		$li.appendTo("#first-point");
-		/* $li.addClass();     */
+				- this means explicitly providing the appropriate background knowledge
+				- example: video one (AQ and visibility) does this for the science, but not for the context. there's no explicit statement about AQ being important in human health. the direct connection between the viewer and the content is assumed to be implied
+				- Jared's suggestion: don't assume! quickly introduce it!
+
+			Yeah, ok! Let's make it happen! 
+		*/
+
+
+		//       STEP ONE MODIFICATIONS      //
+
+		// 1. altering bullet one text to isolate question and motivation
+		var $question = $("#first-point");
+		$question.text("Introduce the misconception")
+
+		// 2. creating a new bullet element for motivation
+		var $motivation = $("<li>");
+		$motivation
+			.text("Motivate your audience")
+			.appendTo("#first-point");
+		
 
 
 	</script>
